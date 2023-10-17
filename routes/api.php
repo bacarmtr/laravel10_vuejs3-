@@ -3,6 +3,7 @@
 use App\Http\Controllers\api\V1\TaskController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\V1\CompleteTaskCotroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 Route::prefix('v1')->group(function(){
     Route::apiResource('/tasks', TaskController::class);
+    Route::patch('/tasks/{task}/complete', CompleteTaskCotroller::class);
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
